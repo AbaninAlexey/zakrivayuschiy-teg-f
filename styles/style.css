@@ -94,7 +94,6 @@
   top: 27px;
   opacity: 0.5;
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--color-white);
   text-shadow:
     -1px 0 var(--color-white),
     0 1px var(--color-white),
@@ -103,12 +102,13 @@
 }
 
 @supports (
-  (text-stroke: 1px var(--color-white)) or
+  (-webkit-text-stroke: 1px var(--color-white)) or
     (-webkit-text-stroke: 1px var(--color-white))
 ) {
   .card__label {
+    text-shadow: none;
     -webkit-text-stroke: 1px var(--color-white);
-    text-stroke: 1px var(--color-white);
+    -webkit-text-stroke: 1px var(--color-white);
   }
 }
 
@@ -116,6 +116,12 @@
   padding: 25px 25px 24px 25px;
   display: grid;
   row-gap: 25px;
+}
+
+@supports (font-variation-settings: normal) {
+  .card__body {
+    font-variation-settings: "wght" var(--font-main-min-weight);
+  }
 }
 
 .card__image-wrapper {
@@ -191,32 +197,32 @@
   display: inline-block;
   transition: outline 0.3s ease;
   transform-origin: center;
+}
 
-  &:hover .core,
-  &:hover .main-body {
-    fill: var(--color-black);
-  }
+.like-icon:hover .core,
+.like-icon:hover .main-body {
+  fill: var(--color-black);
+}
 
-  &:hover .core {
-    transition-delay: 0s;
-  }
+.like-icon:hover .core {
+  transition-delay: 0s;
+}
 
-  &:hover .main-body {
-    transition-delay: 0.05s;
-  }
+.like-icon:hover .main-body {
+  transition-delay: 0.05s;
+}
 
-  &:active .core,
-  &:active .main-body {
-    fill: var(--color-red);
-  }
+.like-icon:active .core,
+.like-icon:active .main-body {
+  fill: var(--color-red);
+}
 
-  &:active .core {
-    transition-delay: 0s;
-  }
+.like-icon:active .core {
+  transition-delay: 0s;
+}
 
-  &:active .main-body {
-    transition-delay: 0.05s;
-  }
+.like-icon:active .main-body {
+  transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .core,
@@ -226,7 +232,7 @@
 }
 
 .like-icon.is-liked .core {
-  transition-delay: 0;
+  transition-delay: 0s;
 }
 
 .like-icon.is-liked .main-body {
@@ -260,10 +266,10 @@
   border: 2px solid transparent;
   max-height: 38px;
   aspect-ratio: 1 / 1;
+}
 
-  &:focus-visible {
-    border-color: black;
-  }
+.card__icon-button:focus-visible {
+  border-color: black;
 }
 
 .card__like-button {
@@ -285,29 +291,27 @@
   z-index: 1;
   color: var(--color-black);
   background-color: var(--color-white);
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: var(--color-white);
-    width: 100%;
-    height: 100%;
-    translate: -100% 0;
-    transition: 0.5s ease-in-out;
-    mix-blend-mode: difference;
-  }
-
-  &:hover.button-decor::before {
-    translate: 0 0;
-  }
 }
 
-.button-focus-effect {
-  &:focus-visible {
-    outline: none;
-    box-shadow: 2px 2px 0 0 var(--color-black);
-  }
+.button-hover-effect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  translate: -100% 0;
+  transition: 0.5s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.button-hover-effect:hover.button-decor::before {
+  translate: 0 0;
+}
+
+.button-focus-effect:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--color-black);
 }
 
 .floppy {
@@ -351,7 +355,8 @@
 }
 
 .dialog[open] {
-  padding: 26px;
+  position: fixed;
+  padding: 30px;
   display: grid;
   grid-template-rows: repeat(2, auto);
   grid-template-columns: 1fr auto;
@@ -362,16 +367,16 @@
   border: var(--border);
 }
 
+body:has(.dialog[open]) {
+  overflow: hidden;
+}
+
 @media (width <= 375px) {
   .dialog[open] {
     max-width: 341px;
     padding: 30px 40px;
     gap: 25px 20px;
   }
-}
-
-body:has(.dialog[open]) {
-  overflow: hidden;
 }
 
 .dialog[open] .floppy {
