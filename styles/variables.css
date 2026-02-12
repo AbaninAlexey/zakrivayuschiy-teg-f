@@ -16,7 +16,7 @@
   --color-core: transparent;
   --color-main-body: transparent;
 
-  --border: 2.3px solid var(--color-black);
+  --border: 2px solid var(--color-black);
 
   --gradient:
     repeating-linear-gradient(90deg, #d3d3d3 0px 2px, transparent 2px 4px),

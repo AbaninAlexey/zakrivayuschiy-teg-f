@@ -19,7 +19,6 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-main);
-  font-variation-settings: "wght" var(--font-main-min-weight);
   background-image: var(--gradient);
   background-size: cover;
   background-attachment: fixed;
@@ -191,7 +190,6 @@
 .like-icon {
   display: inline-block;
   transition: outline 0.3s ease;
-  outline: 2px solid var(--color-white);
   transform-origin: center;
 
   &:hover .core,
@@ -247,21 +245,32 @@
   animation: heart-sparks-opacity 0.3s ease-in 0.3s;
 }
 
-.card__icon-button {
+.card__icon-buttons {
   justify-self: end;
   display: flex;
   gap: 6px;
   align-items: center;
   transition: outline 0.3s ease;
+}
 
-  &:focus-visible .like-icon {
-    outline: var(--border);
-    transition: outline 0 0.3s ease;
+.card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  max-height: 38px;
+  aspect-ratio: 1 / 1;
+
+  &:focus-visible {
+    border-color: black;
   }
 }
 
-.button__text {
-  padding: 10.5px 35px;
+.card__like-button {
+  padding-block: 10.5px;
+  min-width: 130px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .button-decor {
@@ -305,14 +314,14 @@
   background-color: transparent;
 }
 
-.footer {
+.section-footer {
   padding-block: 50px 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.footer__button {
+.section-footer__button {
   background-color: var(--color-white);
   display: flex;
   align-items: center;
@@ -321,21 +330,21 @@
   padding: 13px 16px;
 }
 
-.footer__floppy {
+.section-footer__floppy {
   width: 21px;
   height: 21px;
 }
 
-.footer__text {
+.section-footer__text {
   padding: 0;
 }
 
 @media (width <= 375px) {
-  .footer__button {
+  .section-footer__button {
     flex-direction: column;
   }
 
-  .footer__floppy {
+  .section-footer__floppy {
     width: 28px;
     height: 28px;
   }
