@@ -9,7 +9,7 @@
 
   --color-white: #fff;
   --color-black: #000;
-  --color-red: #FF0000;
+  --color-red: #ff0000;
 
   --color-contour: var(--color-black);
   --color-animation-fill: var(--color-red);
