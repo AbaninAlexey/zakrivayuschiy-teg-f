@@ -375,7 +375,6 @@
 }
 
 .dialog[open] {
-  position: fixed;
   padding: 30px;
   display: grid;
   grid-template-rows: repeat(2, auto);
@@ -387,9 +386,6 @@
   border: var(--border);
 }
 
-body:has(.dialog[open]) {
-  overflow: hidden;
-}
 
 @media (width <= 375px) {
   .dialog[open] {
