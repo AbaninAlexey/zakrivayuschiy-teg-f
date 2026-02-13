@@ -26,7 +26,7 @@
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-variation-settings: "wght" var(--font-main-min-weight);
+    font-variation-settings: "wght" var(--font-weight-min);
   }
 }
 
@@ -94,6 +94,13 @@
   border-bottom: var(--border);
 }
 
+@supports (font-variation-settings: normal) {
+  .card__title {
+    font-weight: normal;
+    font-variation-settings: 'wght' var(--font-weight-max);
+  }
+}
+
 .card__label {
   position: absolute;
   right: 25px;
@@ -123,9 +130,14 @@
   row-gap: 25px;
 }
 
+.card__body p {
+  font-weight: var(--font-weight-min);
+}
+
 @supports (font-variation-settings: normal) {
-  .card__body {
-    font-variation-settings: "wght" var(--font-main-min-weight);
+  .card__body p {
+    font-weight: normal;
+    font-variation-settings: 'wght' var(--font-weight-min);
   }
 }
 
