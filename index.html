@@ -562,49 +562,45 @@
             </article>
           </li>
         </ul>
-      </section>
-      <section class="section-footer container">
-        <dialog class="section-footer__popup dialog" id="popup">
-          <svg
-            class="dialog__floppy floppy"
-            width="21"
-            height="21"
-            viewBox="0 0 39 39"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <use href="./svg/floppy.svg#floppy"></use>
-          </svg>
-          <span class="dialog__text label">
-            Вставьте дискету, чтобы продолжить
-          </span>
+        <div class="dialog-wrapper">
+          <dialog class="dialog" id="popup">
+            <svg
+              class="dialog__floppy floppy"
+              width="21"
+              height="21"
+              viewBox="0 0 39 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="./svg/floppy.svg#floppy"></use>
+            </svg>
+            <p class="dialog__text label">Вставьте дискету, чтобы продолжить</p>
+            <button
+              type="button"
+              class="dialog__button button button-decor label button-focus-effect button-hover-effect"
+              onclick="window['popup'].close()"
+            >
+              <span class="button__text"> ОК </span>
+            </button>
+          </dialog>
           <button
             type="button"
-            class="dialog__button button button-decor label button-focus-effect button-hover-effect"
-            onclick="window['popup'].close()"
+            class="button popup-button label button-decor button-hover-effect button-focus-effect"
+            onclick="window['popup'].showModal()"
           >
-            <span class="button__text"> ОК </span>
+            <svg
+              class="floppy"
+              width="21"
+              height="21"
+              viewBox="0 0 39 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="./svg/floppy.svg#floppy"></use>
+            </svg>
+            <span class="button__text">Сохранить на память</span>
           </button>
-        </dialog>
-        <button
-          type="button"
-          class="section-footer__button button label button-decor button-hover-effect button-focus-effect"
-          onclick="window['popup'].showModal()"
-        >
-          <svg
-            class="section-footer__floppy floppy"
-            width="21"
-            height="21"
-            viewBox="0 0 39 39"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <use href="./svg/floppy.svg#floppy"></use>
-          </svg>
-          <p class="button__text section-footer__text"
-            >Сохранить на память</p
-          >
-        </button>
+        </div>
       </section>
     </main>
     <script src="./scripts/like.js"></script>

@@ -30,6 +30,12 @@
   }
 }
 
+.sprint {
+  padding-bottom: 121px;
+  display: grid;
+  row-gap: 50px;
+}
+
 .label {
   font-family: var(--font-accent);
   font-size: 14px;
@@ -316,6 +322,8 @@
 
 .floppy {
   background-color: transparent;
+  width: 21px;
+  height: 21px;
 }
 
 .section-footer {
@@ -334,15 +342,6 @@
   padding: 13px 16px;
 }
 
-.section-footer__floppy {
-  width: 21px;
-  height: 21px;
-}
-
-.section-footer__text {
-  padding: 0;
-}
-
 @media (width <= 375px) {
   .section-footer__button {
     flex-direction: column;
@@ -352,6 +351,16 @@
     width: 28px;
     height: 28px;
   }
+}
+
+.popup-button {
+  padding: 17px 20px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .dialog[open] {
