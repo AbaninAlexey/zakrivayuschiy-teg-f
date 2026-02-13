@@ -114,7 +114,6 @@
   .card__label {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--color-white);
-    -webkit-text-stroke: 1px var(--color-white);
   }
 }
 
